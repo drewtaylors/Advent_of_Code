@@ -62,6 +62,4 @@ def loop_through_ids(list_of_ids):
                 else:
                     return [id_a, id_b]
 
-
-
 print(loop_through_ids(list_of_ids))
