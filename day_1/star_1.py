@@ -1,5 +1,4 @@
 from __future__ import print_function
-import requests
 
 list_of_freqs = []
 
