@@ -7,34 +7,39 @@ with open('input.txt', 'rb') as f:
     for line in f:
         list_of_ids.append(line.strip())
 
-pair_ids = 0
-triplet_ids = 0
-alphabet = string.ascii_lowercase
+# part a
+def generate_checksum(list_of_ids):
+    pair_ids = 0
+    triplet_ids = 0
+    alphabet = string.ascii_lowercase
 
-for id in list_of_ids:
-    lexicon = dict.fromkeys(alphabet, 0)
-    pair = False
-    triplet = False
+    for id in list_of_ids:
+        lexicon = dict.fromkeys(alphabet, 0)
+        pair = False
+        triplet = False
 
-    # count frequencies of each letter
-    for letter in id:
-        lexicon[letter] += 1
+        # count frequencies of each letter
+        for letter in id:
+            lexicon[letter] += 1
 
-    # flip values if they contain a pair or triplet
-    for letter in alphabet:
-        if lexicon[letter] == 2:
-            pair = True
-        if lexicon[letter] == 3:
-            triplet = True
+        # flip values if they contain a pair or triplet
+        for letter in alphabet:
+            if lexicon[letter] == 2:
+                pair = True
+            if lexicon[letter] == 3:
+                triplet = True
 
-    # Increment number accordingly
-    if pair == True:
-        pair_ids += 1
-    if triplet == True:
-        triplet_ids += 1
+        # Increment number accordingly
+        if pair == True:
+            pair_ids += 1
+        if triplet == True:
+            triplet_ids += 1
 
-print(pair_ids * triplet_ids)
+    return (pair_ids * triplet_ids)
 
+print(generate_checksum(list_of_ids))
+
+# part b
 def check_for_one_off(word_a, word_b):
     # switch
     one_off = False
