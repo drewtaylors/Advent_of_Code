@@ -36,8 +36,6 @@ for shift in shifts:
         for i in range(time_asleep, time_awake):
             guards[guard_id]['timecard'][i] += 1
 
-
-
 # part a
 def most_minutes_asleep():
     max_guard_id = 0
