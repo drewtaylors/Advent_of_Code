@@ -1,6 +1,4 @@
 from __future__ import print_function
-import re
-import numpy
 from string import ascii_lowercase, ascii_uppercase
 
 sequence_a = []
