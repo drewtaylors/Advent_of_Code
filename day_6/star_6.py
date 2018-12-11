@@ -78,17 +78,17 @@ if __name__ == "__main__":
             coords.append(coord)
 
     # part a
-    # fill_matrix(matrix, coords)
-    # infinite_coords = border_check(matrix)
-    # coord_areas = numpy.zeros(len(coords))
+    fill_matrix(matrix, coords)
+    infinite_coords = border_check(matrix)
+    coord_areas = numpy.zeros(len(coords))
 
-    # for row in matrix:
-    #     for i in row:
-    #         if i != -1:
-    #             coord_areas[int(i)] += 1
+    for row in matrix:
+        for i in row:
+            if i != -1:
+                coord_areas[int(i)] += 1
 
-    # index = find_max_area(coord_areas, infinite_coords)
-    # print(coord_areas[index])
+    index = find_max_area(coord_areas, infinite_coords)
+    print(coord_areas[index])
 
 
     print(coords)
