@@ -24,6 +24,7 @@ class Tree:
         self.all_nodes = []
         self.license_file = license_file
         self.root = self.recursive_builder()
+        self.total = self.recursive_addition(self.root)
 
     def recursive_builder(self):
         node = Node()
@@ -43,7 +44,19 @@ class Tree:
 
         return node
 
-    
+    def recursive_addition(self, node):
+        total = 0
+
+        if node.child_nodes:
+            for num in node.metadata_entries:
+                try:
+                    total += self.recursive_addition(node.child_nodes[num-1])
+                except IndexError:
+                    pass
+        else:
+            total += sum(node.metadata_entries)
+
+        return total
 
 if __name__ == "__main__":
     print('main')
@@ -59,12 +72,19 @@ if __name__ == "__main__":
 
     tree = Tree(license_file)
 
-    total = 0
+    a_total = 0
 
     for node in tree.all_nodes:
-        print(node)
-        print(node.child_nodes)
-        print(node.metadata_entries)
-        total += sum(node.metadata_entries)
+        a_total += sum(node.metadata_entries)
 
-    print(total)
+    # part a
+    print(a_total)
+
+    # value of node B is 10+11+12=33
+    # if a node does have child nodes, the metadata entries 
+    # become indexes which refer to those child nodes
+    # 1 refers to first child, 0 is None
+
+    # part b
+    print(tree.total)
+
